@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { AddItemFormComponent } from './add-item-form/add-item-form.component';
 import { BudgetItemListComponent } from './budget-item-list/budget-item-list.component';
-import { BugetItemCardComponent } from './budget-item-list/budget-item-card/buget-item-card.component';
+import { BudgetItemCardComponent } from './budget-item-list/budget-item-card/budget-item-card.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { BugetItemCardComponent } from './budget-item-list/budget-item-card/buge
     MainPageComponent,
     AddItemFormComponent,
     BudgetItemListComponent,
-    BugetItemCardComponent
+    BudgetItemCardComponent
   ],
   imports: [
     BrowserModule,

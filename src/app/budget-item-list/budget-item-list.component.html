@@ -6,11 +6,11 @@
 
       <div class="budget-items">
         <div *ngFor="let item of budgetItems">
-          <app-buget-item-card
+          <app-budget-item-card
             *ngIf="item.amount >= 0"
-            [isIncome]="true"
-            style="margin-bottom: 20px">
-          </app-buget-item-card>
+            [item]="item"
+            style="margin-bottom: 20px; display: block">
+          </app-budget-item-card>
         </div>
       </div>
     </div>
@@ -19,8 +19,13 @@
       <h1>Expenses</h1>
 
       <div class="budget-items">
-        <app-buget-item-card [isIncome]="false" style="margin-bottom: 20px"></app-buget-item-card>
-        <app-buget-item-card [isIncome]="false" style="margin-bottom: 20px"></app-buget-item-card>
+        <div *ngFor="let item of budgetItems">
+          <app-budget-item-card
+            *ngIf="item.amount < 0"
+            [item]="item"
+            style="margin-bottom: 20px; display: block">
+          </app-budget-item-card>
+        </div>
       </div>
     </div>
 
