@@ -3,6 +3,11 @@ import {BudgetItem} from '../../shared/models/budget-item.model';
 import {EditItemModalComponent} from '../edit-item-modal/edit-item-modal.component';
 import {MatDialog} from '@angular/material/dialog';
 
+export interface UpdateItemEvent {
+  old: BudgetItem;
+  new: BudgetItem;
+}
+
 @Component({
   selector: 'app-budget-item-list',
   templateUrl: './budget-item-list.component.html',
@@ -12,8 +17,10 @@ export class BudgetItemListComponent implements OnInit {
 
   @Input() budgetItems: BudgetItem[];
   @Output() removeItem: EventEmitter<BudgetItem> = new EventEmitter<BudgetItem>();
+  @Output() updateItem: EventEmitter<UpdateItemEvent> = new EventEmitter<UpdateItemEvent>();
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
   }
@@ -30,7 +37,10 @@ export class BudgetItemListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.budgetItems[this.budgetItems.indexOf(item)] = result;
+        this.updateItem.emit({
+          old: item,
+          new: result
+        });
       }
     });
   }
