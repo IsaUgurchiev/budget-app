@@ -10,8 +10,7 @@
 
   h1 {
     font-size: 18px;
-    font-family: 'Lato';
-    letter-spacing: 1px;
+    font-family: $font-family;
     font-weight: 900;
     text-transform: uppercase;
     color: $dark;
@@ -20,7 +19,7 @@
 
 .total-budget-section {
   display: flex;
-  height: 250px;
+  height: 150px;
   background: $dark;
 
   justify-content: center;
@@ -28,7 +27,7 @@
 
   h2 {
     font-weight: 300;
-    font-family: 'Lato';
+    font-family: $font-family;
     font-size: 58px;
     color: white;
 
@@ -42,14 +41,20 @@
   }
 }
 
-.add-item-section {
-  display: flex;
+.container {
+  width: 100%;
+  padding: $medium-padding;
+}
 
-  justify-content: center;
-  align-items: center;
+@media screen and (min-width: 768px) {
+  .total-budget-section {
+    height: 250px;
+  }
+}
 
-  .add-item-container {
-    width: 680px;
+@media screen and (min-width: 768px) {
+  .container {
+    width: $container-width;
   }
 }
 

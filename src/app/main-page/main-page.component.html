@@ -6,16 +6,16 @@
   <h2 [ngClass]="{ 'green': (totalBudget > 0), 'red': (totalBudget < 0) }">{{totalBudget}}</h2>
 </section>
 
-<section class="add-item-section">
-  <div class="add-item-container">
-    <app-add-item-form style="padding: 20px;" (formSubmit)="onAddItem($event)"></app-add-item-form>
-  </div>
+<section class="container">
+  <app-add-item-form (formSubmit)="onAddItem($event)"></app-add-item-form>
 </section>
 
-<hr style="margin-top: 0;"/>
+<hr style="margin: 0;"/>
 
-<app-budget-item-list
-  [budgetItems]="budgetItems"
-  (removeItem)="onRemoveItem($event)"
-  (updateItem)="onUpdateItem($event)">
-</app-budget-item-list>
+<section class="container">
+  <app-budget-item-list
+    [budgetItems]="budgetItems"
+    (removeItem)="onRemoveItem($event)"
+    (updateItem)="onUpdateItem($event)">
+  </app-budget-item-list>
+</section>
