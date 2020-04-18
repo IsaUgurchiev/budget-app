@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {BudgetItem} from '../../shared/models/budget-item.model';
 import {Subject} from 'rxjs';
+import {startWith} from 'rxjs/operators';
 import {BudgetService} from '../services/budget.service';
 import {UpdateItemEvent} from '../budget-item-list/budget-item-list.component';
+import {BudgetItem} from '../../shared/models/budget-item.model';
 
 @Component({
   selector: 'app-main-page',
@@ -22,6 +23,9 @@ export class MainPageComponent implements OnInit {
     this.getBudgetItems();
 
     this.budgetItemsChanges
+      .pipe(
+        startWith(null)
+      )
       .subscribe(() => this.calculateTotalBudget());
   }
 
